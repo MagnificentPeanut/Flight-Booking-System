@@ -2,6 +2,7 @@ package com.capg.service;
 
 import com.capg.dto.FlightsDTO;
 import com.capg.entity.Flights;
+import com.capg.exception.FlightNotFoundException;
 import com.capg.repository.FlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -20,19 +21,36 @@ public class FlightServiceImpl implements FlightService{
         return flights.stream().map(FlightsDTO::new).collect(Collectors.toList());
     }
 
+    //Find flight by ID
     @Override
     public FlightsDTO getFlight(Integer id) {
-        return null;
+        Flights flights = flightRepository.findById(id)
+                .orElseThrow(() -> new FlightNotFoundException("Flight does not exist with id: " + id));
+        return new FlightsDTO(flights);
     }
 
+    //Create new flight
     @Override
     public FlightsDTO newFlight(FlightsDTO flightsDTO) {
-        return null;
+        Flights flights = new Flights(flightsDTO);
+        return new FlightsDTO(flightRepository.save(flights));
     }
 
+    //Update flight
     @Override
     public FlightsDTO updateFlight(Integer id, FlightsDTO flightsDTO) {
-        return null;
+        Flights flights = flightRepository.findById(id)
+                .orElseThrow(() -> new FlightNotFoundException("Flight does not exist with id: " + id));
+
+        flights.setFlightName(flightsDTO.getFlightName());
+        flights.setOrigin(flightsDTO.getOrigin());
+        flights.setDestination(flightsDTO.getDestination());
+        flights.setDepartureTime(flightsDTO.getDepartureTime());
+        flights.setArrivalTime(flightsDTO.getArrivalTime());
+        flights.setSeats(flightsDTO.getSeats());
+        flights.setFare(flightsDTO.getFare());
+
+        return new FlightsDTO(flights);
     }
 
     @Override

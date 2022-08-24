@@ -31,7 +31,7 @@ public class FlightController {
         return flightService.getFlight(id);
     }
 
-    @GetMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<FlightsDTO> update(@PathVariable Integer id, @Valid @RequestBody FlightsDTO flightsDTO) {
         return new ResponseEntity<FlightsDTO>(flightService.updateFlight(id, flightsDTO), HttpStatus.ACCEPTED);
     }

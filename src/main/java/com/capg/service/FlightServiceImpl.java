@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FlightServiceImpl implements FlightService{
+public abstract class FlightServiceImpl implements FlightService{
 
     @Autowired
     private FlightRepository flightRepository;

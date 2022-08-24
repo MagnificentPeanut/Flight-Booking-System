@@ -1,8 +1,10 @@
 package com.capg.repository;
 
 import com.capg.entity.Flights;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface FlightRepository extends JpaRepository<Flights, Integer> {
+@Repository
+public interface FlightRepository extends MongoRepository<Flights, Integer> {
 
 }

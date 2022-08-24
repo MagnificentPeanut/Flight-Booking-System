@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 public class FlightsDTO {
 
-    private Integer flightId;
+    private int flightId;
 
     @NotBlank(message = "Flight name cannot be blank or null")
     @Size(min = 3, max = 30)

@@ -2,6 +2,7 @@ package com.capg.controller;
 
 import com.capg.dto.FlightsDTO;
 import com.capg.service.FlightService;
+import com.capg.service.SequenceGeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,11 +11,15 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/flights")
 public class FlightController {
     @Autowired
     private FlightService flightService;
+
+    @Autowired
+    private SequenceGeneratorService sequenceGeneratorService;
 
     @PostMapping("/create")
     public ResponseEntity<FlightsDTO> createFlight(@Valid @RequestBody FlightsDTO flightsDTO) {

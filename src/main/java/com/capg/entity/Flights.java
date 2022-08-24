@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
@@ -13,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "FlightSearch")
 public class Flights {
     @Id
-    private Integer flightId;
+    private int flightId;
     private String flightName;
     private String origin;
     private String destination;

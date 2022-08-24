@@ -5,11 +5,13 @@ import com.capg.entity.Flights;
 import com.capg.exception.FlightNotFoundException;
 import com.capg.repository.FlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract class FlightServiceImpl implements FlightService{
+@Service
+public class FlightServiceImpl implements FlightService{
 
     @Autowired
     private FlightRepository flightRepository;

@@ -2,7 +2,6 @@ package com.capg.controller;
 
 import com.capg.dto.FlightsDTO;
 import com.capg.service.FlightService;
-import com.capg.service.SequenceGeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

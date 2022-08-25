@@ -13,6 +13,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class DbSequence {
 
     @Id
-    private int flightId;
+    private String id;
     private int sequence;
 }

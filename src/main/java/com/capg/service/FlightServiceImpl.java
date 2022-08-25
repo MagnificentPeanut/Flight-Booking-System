@@ -15,6 +15,9 @@ public class FlightServiceImpl implements FlightService{
 
     @Autowired
     private FlightRepository flightRepository;
+
+    @Autowired
+    private SequenceGeneratorService sequenceGeneratorService;
     //Get all flight details
     @Override
     public List<FlightsDTO> getFlights() {
@@ -32,6 +35,7 @@ public class FlightServiceImpl implements FlightService{
     @Override
     public FlightsDTO newFlight(FlightsDTO flightsDTO) {
         Flights flights = new Flights(flightsDTO);
+        flights.setFlightId(sequenceGeneratorService.getSequenceNumber(Flights.SEQUENCE_NAME));
         return new FlightsDTO(flightRepository.save(flights));
     }
     //Update flight

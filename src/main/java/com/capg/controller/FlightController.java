@@ -18,9 +18,6 @@ public class FlightController {
     @Autowired
     private FlightService flightService;
 
-    @Autowired
-    private SequenceGeneratorService sequenceGeneratorService;
-
     @PostMapping("/create")
     public ResponseEntity<FlightsDTO> createFlight(@Valid @RequestBody FlightsDTO flightsDTO) {
         return new ResponseEntity<FlightsDTO>(flightService.newFlight(flightsDTO), HttpStatus.CREATED);

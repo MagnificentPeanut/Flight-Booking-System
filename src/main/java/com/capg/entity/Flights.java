@@ -13,6 +13,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Document(collection = "FlightSearch")
 public class Flights {
+
+    @Transient
+    public static final String SEQUENCE_NAME = "users_sequence";
     @Id
     private int flightId;
     private String flightName;
